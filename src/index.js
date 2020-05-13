@@ -8,7 +8,6 @@ const App = () => {
   const [timer, setTimer] = useState(null);
 
   // Necessário este let para corrigir o problema da incompatibilidade do setInterval com os Hooks
-  let numberChronometer = number;
 
   const startGo = () => {
     if (timer !== null) {
@@ -18,8 +17,7 @@ const App = () => {
     } else {
       setTimer(
         setInterval(() => {
-          numberChronometer = numberChronometer + 0.1;
-          setNumber(numberChronometer);
+          setNumber((number) => number + 0.1);
         }, 100),
       );
       setBtnGo('Stop go!');
